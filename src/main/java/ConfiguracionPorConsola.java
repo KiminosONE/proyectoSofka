@@ -15,6 +15,7 @@ public class ConfiguracionPorConsola {
     private void obtenerConfiguracionJuego() {
         obtenerNombreCarrera();
         obtenerPista();
+        new IniciarCarrera().empezarCarrera(configuracionJuego, carros);
     }
 
     private void obtenerNombreCarrera() {
