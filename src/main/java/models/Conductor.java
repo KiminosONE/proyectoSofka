@@ -11,5 +11,8 @@ public class Conductor {
     private String nombre;
     private Integer victorias;
     private String posicionPodio;
-    private Carro carro;
+
+    public  Conductor (String nombre) {
+        this.nombre = nombre;
+    }
 }
