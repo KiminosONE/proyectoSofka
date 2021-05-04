@@ -10,11 +10,11 @@ public class IniciarCarrera {
     Map<String, Integer> listaPosicion = new HashMap<>();
     Juego configuracion;
 
-    void empezarCarrera(Juego configuracionjuego, List<Carro> carros) {
+    void empezarCarrera(Juego configuracionjuego, List<Conductor> conductores) {
         podio.setConductores(new ArrayList<>());
-//        obtenerListaDeCarros(carros);
+        obtenerListaDeCarros(conductores);
         configuracion = configuracionjuego;
-//        obtenerGanadores(carros, podio.getConductores());
+        obtenerGanadores(conductores, podio.getConductores());
         imprimirGanadores();
     }
 
@@ -24,16 +24,15 @@ public class IniciarCarrera {
             System.out.println(index + "). " + conductor.getNombre());
         });
     }
-/*
 
-    private void obtenerListaDeCarros(List<Carro> carros) {
-        carros.forEach(carro -> listaPosicion.put(carro.getConductor().getNombre(), 0));
+    private void obtenerListaDeCarros(List<Conductor> conductores) {
+        conductores.forEach(conductor -> listaPosicion.put(conductor.getNombre(), 0));
     }
 
-    private void obtenerGanadores(List<Carro> carros, List<Conductor> listaPodio) {
+    private void obtenerGanadores(List<Conductor> conductors, List<Conductor> listaPodio) {
         while (listaPodio.size() < 3) {
             for (int i = 0; i < obtenerTamannoListaCarriles(); i++) {
-                var conductor = carros.get(i).getConductor();
+                var conductor = conductors.get(i);
                 var llave = conductor.getNombre();
                 var posicion = listaPosicion.get(llave);
                 listaPosicion.replace(llave, movimiento(posicion));
@@ -43,7 +42,6 @@ public class IniciarCarrera {
 
         podio.setConductores(listaPodio);
     }
-*/
 
     private void agregarGanador(List<Conductor> listaPodio, Conductor conductor, Integer posicion) {
         if (posicion >= obtenerDistanciaTotal() && !(listaPodio.contains(conductor)) && listaPodio.size() < 3) {

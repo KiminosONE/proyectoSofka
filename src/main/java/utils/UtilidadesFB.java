@@ -6,12 +6,10 @@ import com.google.cloud.firestore.QuerySnapshot;
 import connection.ConexionFirebase;
 import models.Carro;
 import models.Conductor;
-import models.Podio;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class UtilidadesFB {

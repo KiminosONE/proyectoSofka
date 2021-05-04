@@ -10,6 +10,6 @@ public class ConfiguracionPorInstancias {
         List<Carro> carros = new ArrayList<>();
         UtilidadesFB.obtenerConductores("conductores");
         Juego configuracionJuego = new Juego(new Pista(carriles, 4, 4), "Carrera por instancias");
-        new IniciarCarrera().empezarCarrera(configuracionJuego, carros);
+//        new IniciarCarrera().empezarCarrera(configuracionJuego, carros);
     }
 }

@@ -3,13 +3,11 @@ import utils.UtilidadesFB;
 import utils.UtilidadesValidacion;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class ConfiguracionPorConsola {
     Pista pista = new Pista();
     Juego configuracionJuego = new Juego();
-    List<Carro> carros = new ArrayList<>();
     List<Conductor> conductores = new ArrayList<>();
     Boolean usoFirebase;
 
@@ -27,11 +25,12 @@ public class ConfiguracionPorConsola {
         obtenerPista();
         mostrarDatos();
         UtilidadesValidacion.cerrarScanner();
-        // new IniciarCarrera().empezarCarrera(configuracionJuego, carros);
+        new IniciarCarrera().empezarCarrera(configuracionJuego, conductores);
     }
 
     private void obtenerNombreCarrera() {
-        configuracionJuego.setNombreCarrera(UtilidadesValidacion.validarNoVacio("Ingrese el nombre de la carrera"));
+        configuracionJuego.setNombreCarrera(UtilidadesValidacion
+                .validarNoVacio("Ingrese el nombre de la carrera"));
     }
 
     private void obtenerPista() {
@@ -43,17 +42,19 @@ public class ConfiguracionPorConsola {
     }
 
     void mostrarDatos() {
-        pista.getCarriles().forEach(carril -> {
-            System.out.println(carril.getConductor().getCarro().getColor() + " => " + carril.getConductor().getId());
-        });
+        pista.getCarriles().forEach(carril -> System.out.println(carril.getConductor().getCarro().getColor()
+                + " => " + carril.getConductor().getId()
+                + " => " + carril.getConductor().getNombre()));
     }
 
     private void obtenerDistanciaTotal() {
-        pista.setDistanciaTotal(UtilidadesValidacion.validarNumerico("Ingrese la distancia total de la pista en Km"));
+        pista.setDistanciaTotal(UtilidadesValidacion
+                .validarNumerico("Ingrese la distancia total de la pista en Km"));
     }
 
     private void obtenerNumeroCarriles() {
-        pista.setNumeroCarriles(UtilidadesValidacion.validarNumerico("Ingrese la cantidad de carriles que tiene la pista"));
+        pista.setNumeroCarriles(UtilidadesValidacion
+                .validarNumerico("Ingrese la cantidad de carriles que tiene la pista"));
     }
 
     private void agregarCarriles() {
@@ -68,10 +69,6 @@ public class ConfiguracionPorConsola {
         }
         pista.setCarriles(carriles);
     }
-
-//    private Conductor obtenerConductor(Conductor conductor) {
-//        return new Conductor(conductor.getId(), conductor.getNombre(), conductor.getCarro());
-//    }
 
     private String obtenerColor(int index) {
         return UtilidadesValidacion.validarNoVacio("Ingresar el color del carro " + index);
@@ -92,9 +89,4 @@ public class ConfiguracionPorConsola {
 
         return new Carro(color, marca, modelo);
     }
-/*
-    private Conductor obtenerConductor() {
-        var nombre = UtilidadesValidacion.validarNoVacio("Ingrese el nombre del conductor");
-        return new Conductor(nombre);
-    }*/
 }
