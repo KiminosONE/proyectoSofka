@@ -20,10 +20,10 @@ public class IniciarCarrera {
     }
 
     private void imprimirGanadores() {
-        System.out.println("Los ganadores de la carrera " + configuracion.getNombreCarrera() + " son:");
-        for (int i = 0; i < 3; i++) {
-            System.out.println(i + 1 + "). " + podio.getConductores().get(i).getNombre());
-        }
+        podio.getConductores().forEach(conductor -> {
+            var index = podio.getConductores().indexOf(conductor) + 1;
+            System.out.println(index + "). " + conductor.getNombre());
+        });
     }
 
     private void obtenerListaDeCarros(List<Carro> carros) {

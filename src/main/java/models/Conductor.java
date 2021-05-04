@@ -8,11 +8,17 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 public class Conductor {
+    private String id;
     private String nombre;
     private Integer victorias;
     private String posicionPodio;
 
-    public  Conductor (String nombre) {
+    public Conductor(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Conductor(String id, String nombre) {
+        this.id = id;
         this.nombre = nombre;
     }
 }

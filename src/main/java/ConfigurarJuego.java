@@ -15,13 +15,16 @@ public class ConfigurarJuego {
             case "2":
                 new ConfiguracionPorConsola().ejecutarJuegoPorConsola();
                 break;
+            case "3":
+                new ConfiguracionPorFB().ejecutarJuegoPorFB();
+                break;
         }
     }
 
     void validarEntrada() {
         var respuesta = sc.next();
 
-        if (!respuesta.matches("[1-2]")) {
+        if (!respuesta.matches("[1-3]")) {
             iniciarJuego();
         }else {
             configuracionJuego(respuesta);
