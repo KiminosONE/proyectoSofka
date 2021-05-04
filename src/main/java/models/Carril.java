@@ -11,5 +11,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Carril {
     private Integer numeroCarril;
-    private Carro carro;
+    private Conductor conductor;
 }

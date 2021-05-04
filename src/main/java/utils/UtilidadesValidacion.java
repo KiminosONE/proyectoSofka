@@ -1,9 +1,11 @@
+package utils;
+
 import java.util.Scanner;
 
-public class Utilidades {
+public class UtilidadesValidacion {
     private static final Scanner SC = new Scanner(System.in);
 
-    static  String validarNoVacio(String mensaje) {
+    public static String validarNoVacio(String mensaje) {
         var valor = "";
         do {
             System.out.println(mensaje);
@@ -14,7 +16,7 @@ public class Utilidades {
         return valor;
     }
 
-    static int validarNumerico(String mensaje) {
+    public static int validarNumerico(String mensaje) {
         var valor = "";
         do {
             System.out.println(mensaje);
@@ -24,7 +26,7 @@ public class Utilidades {
         return Integer.parseInt(valor);
     }
 
-    static void cerrarScanner(){
+    public static void cerrarScanner(){
         SC.close();
     }
 }

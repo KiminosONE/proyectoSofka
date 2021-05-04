@@ -13,5 +13,4 @@ public class Carro {
     private String color;
     private String marca;
     private String modelo;
-    private Conductor conductor;
 }

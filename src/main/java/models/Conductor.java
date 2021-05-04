@@ -12,13 +12,16 @@ public class Conductor {
     private String nombre;
     private Integer victorias;
     private String posicionPodio;
-
-    public Conductor(String nombre) {
-        this.nombre = nombre;
-    }
+    private Carro carro;
 
     public Conductor(String id, String nombre) {
         this.id = id;
         this.nombre = nombre;
+    }
+
+    public Conductor(String id, String nombre, Carro carro) {
+        this.id = id;
+        this.nombre = nombre;
+        this.carro = carro;
     }
 }

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class IniciarCarrera {
     Podio podio = new Podio();
@@ -13,9 +12,9 @@ public class IniciarCarrera {
 
     void empezarCarrera(Juego configuracionjuego, List<Carro> carros) {
         podio.setConductores(new ArrayList<>());
-        obtenerListaDeCarros(carros);
+//        obtenerListaDeCarros(carros);
         configuracion = configuracionjuego;
-        obtenerGanadores(carros, podio.getConductores());
+//        obtenerGanadores(carros, podio.getConductores());
         imprimirGanadores();
     }
 
@@ -25,6 +24,7 @@ public class IniciarCarrera {
             System.out.println(index + "). " + conductor.getNombre());
         });
     }
+/*
 
     private void obtenerListaDeCarros(List<Carro> carros) {
         carros.forEach(carro -> listaPosicion.put(carro.getConductor().getNombre(), 0));
@@ -43,6 +43,7 @@ public class IniciarCarrera {
 
         podio.setConductores(listaPodio);
     }
+*/
 
     private void agregarGanador(List<Conductor> listaPodio, Conductor conductor, Integer posicion) {
         if (posicion >= obtenerDistanciaTotal() && !(listaPodio.contains(conductor)) && listaPodio.size() < 3) {
