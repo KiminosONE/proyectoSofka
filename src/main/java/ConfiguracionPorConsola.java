@@ -75,7 +75,7 @@ public class ConfiguracionPorConsola {
                 conductor.setCarro(carro);
             }
             conductoresSelectos.add(conductor);
-            carriles.add(new Carril(i, conductor));
+            carriles.add(new Carril(i + 1, conductor));
         }
         pista.setCarriles(carriles);
     }
