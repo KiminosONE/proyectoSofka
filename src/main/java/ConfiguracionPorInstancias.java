@@ -16,7 +16,7 @@ public class ConfiguracionPorInstancias {
         });
 
         Juego configuracionJuego =
-                new Juego(new Pista(carriles, 4, 6), "Carrera por instancias");
+                new Juego(new Pista(carriles, 4, conductores.size()), "Carrera por instancias");
         new IniciarCarrera().empezarCarrera(configuracionJuego, conductores);
     }
 }
