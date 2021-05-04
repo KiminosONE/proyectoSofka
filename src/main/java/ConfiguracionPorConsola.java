@@ -24,15 +24,16 @@ public class ConfiguracionPorConsola {
     private void obtenerConfiguracionJuego() {
         obtenerNombreCarrera();
         obtenerPista();
-        mostrarDatos();
-        UtilidadesValidacion.iniciarCarrera();
+        UtilidadesValidacion.datosCarrera(configuracionJuego);
+        UtilidadesValidacion.vistaListaJugadores(pista);
+        UtilidadesValidacion.presionarParaContinuar();
         UtilidadesValidacion.cerrarScanner();
         new IniciarCarrera().empezarCarrera(configuracionJuego, conductoresSelectos);
     }
 
     private void obtenerNombreCarrera() {
         configuracionJuego.setNombreCarrera(UtilidadesValidacion
-                .validarNoVacio("Ingrese el nombre de la carrera"));
+                .validarNoVacio(Constantes.INGRESO_NOMBRE_CARRERA));
     }
 
     private void obtenerPista() {
@@ -43,26 +44,20 @@ public class ConfiguracionPorConsola {
         configuracionJuego.setPista(pista);
     }
 
-    void mostrarDatos() {
-        pista.getCarriles().forEach(carril -> System.out.println(carril.getConductor().getCarro().getColor()
-                + " => " + carril.getConductor().getId()
-                + " => " + carril.getConductor().getNombre()));
-    }
-
     private void obtenerDistanciaTotal() {
         pista.setDistanciaTotal(UtilidadesValidacion
-                .validarNumerico("Ingrese la distancia total de la pista en Km"));
+                .validarNumerico(Constantes.INGRESO_DISTANCIA_CARRERA));
     }
 
     private void obtenerNumeroCarriles() {
         pista.setNumeroCarriles(UtilidadesValidacion
-                .validarNumerico("Ingrese la cantidad de carriles que tiene la pista"));
+                .validarNumerico(Constantes.INGRESO_CANTIDAD_CARRILES));
         limiteCarriles();
     }
 
     private void limiteCarriles() {
         if (pista.getNumeroCarriles() < 4 || pista.getNumeroCarriles() > conductores.size()) {
-            System.out.println("El minimo de conductores debe de ser 4 y máximo de " + conductores.size());
+            System.out.println(Constantes.MINIMO_MAXIMO_CONDUCTORES + conductores.size());
             obtenerNumeroCarriles();
         }
     }
@@ -82,15 +77,15 @@ public class ConfiguracionPorConsola {
     }
 
     private String obtenerColor(int index) {
-        return UtilidadesValidacion.validarNoVacio("Ingresar el color del carro " + index);
+        return UtilidadesValidacion.validarNoVacio(Constantes.INGRESO_COLOR_CARRO + index);
     }
 
     private String obtenerMarca(int index) {
-        return UtilidadesValidacion.validarNoVacio("Ingresar la marca del carro " + index);
+        return UtilidadesValidacion.validarNoVacio(Constantes.INGRESO_MARCA_CARRO + index);
     }
 
     private String obtenerModelo(int index) {
-        return UtilidadesValidacion.validarNoVacio("Ingresar el modelo del carro " + index);
+        return UtilidadesValidacion.validarNoVacio(Constantes.INGRESO_MODELO_CARRO + index);
     }
 
     private Carro obtenerCarro(int index) {

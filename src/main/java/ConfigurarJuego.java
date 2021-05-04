@@ -15,6 +15,11 @@ public class ConfigurarJuego {
             case "3":
                 new ConfiguracionPorConsola().ejecutarJuegoPorConsola(respuesta);
                 break;
+            case "4":
+                new ObtenerResultados().listarResultados();
+                break;
+            case "5":
+                System.exit(0);
             default:
                 iniciarJuego();
         }
