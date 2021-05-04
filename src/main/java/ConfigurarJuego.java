@@ -7,7 +7,7 @@ public class ConfigurarJuego {
     }
 
     void configuracionJuego(String respuesta) {
-        switch (respuesta){
+        switch (respuesta) {
             case "1":
                 new ConfiguracionPorInstancias().ejecutarJuegoPorInstancias();
                 break;

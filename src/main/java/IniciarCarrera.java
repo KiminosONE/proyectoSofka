@@ -1,4 +1,6 @@
-import models.*;
+import models.Conductor;
+import models.Juego;
+import models.Podio;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +21,7 @@ public class IniciarCarrera {
     }
 
     private void imprimirGanadores() {
+        System.out.println("Los ganadores de la carrera " + configuracion.getNombreCarrera() + " son:");
         podio.getConductores().forEach(conductor -> {
             var index = podio.getConductores().indexOf(conductor) + 1;
             System.out.println(index + "). " + conductor.getNombre());

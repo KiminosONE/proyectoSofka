@@ -13,6 +13,7 @@ import java.io.IOException;
 @Slf4j
 public class ConexionFirebase {
     public static Firestore db;
+
     public static void conectar() throws IOException {
         FileInputStream serviceAccount =
                 new FileInputStream("serviceAccountKey.json");

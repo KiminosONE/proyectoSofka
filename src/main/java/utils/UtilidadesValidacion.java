@@ -26,7 +26,7 @@ public class UtilidadesValidacion {
         return Integer.parseInt(valor);
     }
 
-    public static void cerrarScanner(){
+    public static void cerrarScanner() {
         SC.close();
     }
 }

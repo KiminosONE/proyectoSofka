@@ -9,6 +9,7 @@ public class ConfiguracionPorConsola {
     Pista pista = new Pista();
     Juego configuracionJuego = new Juego();
     List<Conductor> conductores = new ArrayList<>();
+    List<Conductor> conductoresSelectos = new ArrayList<>();
     Boolean usoFirebase;
 
     void ejecutarJuegoPorConsola(String respuesta) {
@@ -25,7 +26,7 @@ public class ConfiguracionPorConsola {
         obtenerPista();
         mostrarDatos();
         UtilidadesValidacion.cerrarScanner();
-        new IniciarCarrera().empezarCarrera(configuracionJuego, conductores);
+        new IniciarCarrera().empezarCarrera(configuracionJuego, conductoresSelectos);
     }
 
     private void obtenerNombreCarrera() {
@@ -34,9 +35,9 @@ public class ConfiguracionPorConsola {
     }
 
     private void obtenerPista() {
+        conductores = UtilidadesFB.obtenerConductores("conductores");
         obtenerDistanciaTotal();
         obtenerNumeroCarriles();
-        conductores = UtilidadesFB.obtenerConductores("conductores");
         agregarCarriles();
         configuracionJuego.setPista(pista);
     }
@@ -55,16 +56,25 @@ public class ConfiguracionPorConsola {
     private void obtenerNumeroCarriles() {
         pista.setNumeroCarriles(UtilidadesValidacion
                 .validarNumerico("Ingrese la cantidad de carriles que tiene la pista"));
+        limiteCarriles();
+    }
+
+    private void limiteCarriles() {
+        if (pista.getNumeroCarriles() < 4 || pista.getNumeroCarriles() > conductores.size()) {
+            System.out.println("El minimo de conductores debe de ser 4 y máximo de " + conductores.size());
+            obtenerNumeroCarriles();
+        }
     }
 
     private void agregarCarriles() {
         var carriles = new ArrayList<Carril>();
-        for (int i = 1; i <= pista.getNumeroCarriles(); i++) {
+        for (int i = 0; i < pista.getNumeroCarriles(); i++) {
             var conductor = conductores.get(i);
             if (!usoFirebase) {
-                var carro = obtenerCarro(i);
+                var carro = obtenerCarro(i + 1);
                 conductor.setCarro(carro);
             }
+            conductoresSelectos.add(conductor);
             carriles.add(new Carril(i, conductor));
         }
         pista.setCarriles(carriles);
