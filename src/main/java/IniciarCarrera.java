@@ -16,8 +16,22 @@ public class IniciarCarrera {
         podio.setConductores(new ArrayList<>());
         obtenerListaDeCarros(conductores);
         configuracion = configuracionjuego;
+        temporizador();
         obtenerGanadores(conductores, podio.getConductores());
         imprimirGanadores();
+    }
+
+    private void temporizador() {
+        System.out.println("La carrera iniciara en:");
+        for (int i = 3; i > 0; i--) {
+            System.out.println(i);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!!!!!!!!!!!!!!\n");
     }
 
     private void imprimirGanadores() {

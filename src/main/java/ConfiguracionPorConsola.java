@@ -25,6 +25,7 @@ public class ConfiguracionPorConsola {
         obtenerNombreCarrera();
         obtenerPista();
         mostrarDatos();
+        UtilidadesValidacion.iniciarCarrera();
         UtilidadesValidacion.cerrarScanner();
         new IniciarCarrera().empezarCarrera(configuracionJuego, conductoresSelectos);
     }

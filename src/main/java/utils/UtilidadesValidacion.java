@@ -29,4 +29,9 @@ public class UtilidadesValidacion {
     public static void cerrarScanner() {
         SC.close();
     }
+
+    public static void iniciarCarrera(){
+        System.out.println("\nPara empezar la carrera presione enter");
+        SC.nextLine();
+    }
 }
