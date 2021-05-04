@@ -1,14 +1,15 @@
 import java.util.Scanner;
 
 public class Utilidades {
-    private static final Scanner sc = new Scanner(System.in);
+    private static final Scanner SC = new Scanner(System.in);
+
     static  String validarNoVacio(String mensaje) {
         var valor = "";
         do {
             System.out.println(mensaje);
-            valor = sc.nextLine();
+            valor = SC.nextLine();
 
-        } while (valor.isEmpty());
+        } while (valor.trim().isEmpty());
 
         return valor;
     }
@@ -17,9 +18,13 @@ public class Utilidades {
         var valor = "";
         do {
             System.out.println(mensaje);
-            valor = sc.nextLine();
-        } while (!valor.matches("[0-9]+"));
+            valor = SC.nextLine();
+        } while (!valor.trim().matches("[0-9]+"));
 
         return Integer.parseInt(valor);
+    }
+
+    static void cerrarScanner(){
+        SC.close();
     }
 }
