@@ -29,10 +29,6 @@ public class UtilidadesValidacion {
         return Integer.parseInt(valor);
     }
 
-    public static void cerrarScanner() {
-        SC.close();
-    }
-
     public static void presionarParaContinuar() {
         System.out.println("\nPresione enter para continuar");
         SC.nextLine();
